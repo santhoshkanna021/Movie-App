@@ -8,18 +8,19 @@ export const trendingData = [
 ];
 
 export const popularData = [
-  { id: 'p-1', image: '/public/Image.svg', title: 'Antman & The Wasp Quantumania', rating: 4.2, genre: 'Action • Movie', releaseDate: '2023', runtime: '2h 5m', ratingPG: 'PG-13', overview: 'Scott Lang and Hope Van Dyne explore the Quantum Realm.' },
-  { id: 'p-2', image: '/public/image 1.svg', title: 'Air; Courting A Legend', rating: 4.8, genre: 'Action • Movie', releaseDate: '2023', runtime: '1h 52m', ratingPG: 'R' },
-  { id: 'p-3', image: '/public/image 2.svg', title: 'John Wick: Chapter 4', rating: 4.5, genre: 'Action • Movie', releaseDate: '2023', runtime: '2h 49m', ratingPG: 'R' },
-  { id: 'p-4', image: '/public/image 3.svg', title: 'Mechamato Movie', rating: 4.0, genre: 'Action • Movie', releaseDate: '2022', runtime: '1h 56m', ratingPG: 'PG' },
-  { id: 'p-5', image: '/public/image 4.svg', title: 'Wednesday Season 1', rating: 4.7, genre: 'Action • Series', releaseDate: '2022', runtime: '0h 45m', ratingPG: 'TV-14' },
-  { id: 'p-6', image: '/public/image 5.svg', title: 'Beef Series', rating: 4.3, genre: 'Action • Series', releaseDate: '2023', runtime: '0h 35m', ratingPG: 'TV-MA' },
-  { id: 'p-7', image: '/public/image 6.svg', title: 'Valhalla Murders Series', rating: 4.1, genre: 'Action • Series', releaseDate: '2020', runtime: '0h 50m', ratingPG: 'TV-MA' },
-  { id: 'p-8', image: '/public/image 7.svg', title: 'The Witcher Volume 2', rating: 4.6, genre: 'Action • Series', releaseDate: '2021', runtime: '1h 0m', ratingPG: 'TV-MA' },
-  { id: 'p-9', image: '/public/image 8.svg', title: 'Toxic', rating: 4.4, genre: 'Action • Movie', releaseDate: '2024', runtime: '1h 40m', ratingPG: 'R' },
-  { id: 'p-10', image: '/public/image 9.svg', title: 'Insider', rating: 4.2, genre: 'Action • Movie', releaseDate: '2023', runtime: '2h 0m', ratingPG: 'PG-13' },
-  { id: 'p-11', image: '/public/image 4.svg', title: 'Race Season 1', rating: 4.5, genre: 'Action • Series', releaseDate: '2023', runtime: '0h 40m', ratingPG: 'TV-14' },
-  { id: 'p-12', image: '/Public/image 11.svg', title: 'Ghost Doctor', rating: 4.3, genre: 'Action • Series', releaseDate: '2022', runtime: '1h 0m', ratingPG: 'TV-14' },
+  { id: 'p-1', image: '/Image.svg', title: 'Antman & The Wasp Quantumania', rating: 4.2, genre: 'Action • Movie', releaseDate: '2023', runtime: '2h 5m', ratingPG: 'PG-13', overview: 'Scott Lang and Hope Van Dyne explore the Quantum Realm.' },
+  { id: 'p-2', image: '/Image 1.svg', title: 'Air; Courting Ah Legend', rating: 4.8, genre: 'Action • Movie', releaseDate: '2023', runtime: '1h 52m', ratingPG: 'R' },
+  { id: 'p-3', image: '/Image 2.svg', title: 'John Wick: Chapter 4', rating: 4.5, genre: 'Action • Movie', releaseDate: '2023', runtime: '2h 49m', ratingPG: 'R' },
+  { id: 'p-4', image: '/image 3.svg', title: 'Mechamato Movie', rating: 4.0, genre: 'Action • Movie', releaseDate: '2022', runtime: '1h 56m', ratingPG: 'PG' },
+  { id: 'p-5', image: '/image 4.svg', title: 'Wednesday Season 1', rating: 4.7, genre: 'Action • Series', releaseDate: '2022', runtime: '0h 45m', ratingPG: 'TV-14' },
+  { id: 'p-6', image: '/Image 5.svg', title: 'Beef Series', rating: 4.3, genre: 'Action • Series', releaseDate: '2023', runtime: '0h 35m', ratingPG: 'TV-MA' },
+  { id: 'p-7', image: '/Image 6.svg', title: 'Valhalla Murders Series', rating: 4.1, genre: 'Action • Series', releaseDate: '2020', runtime: '0h 50m', ratingPG: 'TV-MA' },
+  { id: 'p-8', image: '/Image 7.svg', title: 'The Witcher Volume 2', rating: 4.6, genre: 'Action • Series', releaseDate: '2021', runtime: '1h 0m', ratingPG: 'TV-MA' },
+  { id: 'p-9', image: '/Image 8.svg', title: 'Toxic', rating: 4.4, genre: 'Action • Movie', releaseDate: '2024', runtime: '1h 40m', ratingPG: 'R' },
+  { id: 'p-10', image: '/Image 9.svg', title: 'Insider', rating: 4.2, genre: 'Action • Movie', releaseDate: '2023', runtime: '2h 0m', ratingPG: 'PG-13' },
+  { id: 'p-11', image: '/image 4.svg', title: 'Race Season 1', rating: 4.5, genre: 'Action • Series', releaseDate: '2023', runtime: '0h 40m', ratingPG: 'TV-14' },
+  { id: 'p-12', image: '/Image 11.svg', title: 'Ghost Doctor', rating: 4.3, genre: 'Action • Series', releaseDate: '2022', runtime: '1h 0m', ratingPG: 'TV-14' },
 ];
+
 
 export const allMoviesData = [...trendingData, ...popularData];
