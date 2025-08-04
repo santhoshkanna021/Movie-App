@@ -1,28 +1,31 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FiPlay, FiHeart } from 'react-icons/fi';
-import { allMoviesData } from '../data';
+import axios from 'axios';
 
 const MoviePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const movie = allMoviesData.find((item) => item.id === id) || {
-    id: 't-1',
-    title: 'Squid Game 2',
-    image: '/Group 66718.svg',
-    genre: 'Adventure • Action • Drama',
-    rating: 4.8,
-    releaseDate: '2024',
-    runtime: '2h 46m',
-    ratingPG: 'PG-13',
-    overview: 'Hundreds of cash-strapped players accept a strange invitation to compete in children\'s games, inside, a tempting prize awaits with deadly stakes: a survival game that has a whopping 45.6 billion-won prize at stake.',
-  };
+  const [movie, setMovie] = useState(null);
   const [isLiked, setIsLiked] = useState(false);
 
-  // Scroll to top when the movie ID changes
+  // Scroll to top and fetch movie on ID change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    axios.get('http://localhost:5000/api/movies')
+      .then((res) => {
+        const foundMovie = res.data.find((item) => item.id === id);
+        setMovie(foundMovie);
+      })
+      .catch((err) => {
+        console.error('Error fetching movie:', err);
+      });
   }, [id]);
+
+  if (!movie) {
+    return <div className="text-white text-center mt-10">Loading movie details...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-6 lg:p-8">
@@ -55,7 +58,7 @@ const MoviePage = () => {
           </div>
           <div className="relative bg-gray-800 rounded-lg overflow-hidden shadow-lg">
             <img
-              src={movie.image} // Using poster as trailer placeholder
+              src={movie.image}
               alt={`${movie.title} Trailer`}
               className="w-full h-64 object-cover"
               loading="lazy"

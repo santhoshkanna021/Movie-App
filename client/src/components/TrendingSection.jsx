@@ -1,19 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TrendingCard from './TrendingCard';
 import { FiSearch } from 'react-icons/fi';
-import { trendingData, allMoviesData } from '../data';
+import axios from 'axios';
 
 const TrendingSection = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [allMovies, setAllMovies] = useState([]);
+  const [trendingMovies, setTrendingMovies] = useState([]);
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/movies')
+      .then((res) => {
+        setAllMovies(res.data);
+        const trending = res.data.slice(0, 6); // or use a `isTrending` flag
+        setTrendingMovies(trending);
+      })
+      .catch((err) => {
+        console.error('Error fetching movies:', err);
+      });
+  }, []);
 
   const handleSearchChange = (e) => {
     const query = e.target.value;
     setSearchQuery(query);
     if (query.trim()) {
-      const filtered = allMoviesData.filter((item) =>
+      const filtered = allMovies.filter((item) =>
         item.title.toLowerCase().includes(query.toLowerCase())
       );
       setSuggestions(filtered.slice(0, 5));
@@ -25,7 +40,7 @@ const TrendingSection = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      const movie = allMoviesData.find((item) =>
+      const movie = allMovies.find((item) =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
       if (movie) {
@@ -95,11 +110,13 @@ const TrendingSection = () => {
           )}
         </div>
       </div>
+
       <div className="mb-6 px-4 sm:px-6 lg:px-10">
         <h2 className="text-white text-2xl sm:text-3xl font-bold font-dm">Trending</h2>
       </div>
+
       <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-18 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pb-12">
-        {trendingData.map((item) => (
+        {trendingMovies.map((item) => (
           <div
             key={item.id}
             className="w-[130px] h-[150px] rounded-xl overflow-hidden shadow-lg flex items-center justify-center bg-card-bg cursor-pointer"
