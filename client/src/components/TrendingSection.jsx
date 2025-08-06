@@ -13,7 +13,7 @@ const TrendingSection = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://movie-app-backend-9wvy.onrender.com')
+    axios.get('https://movie-app-backend-9wvy.onrender.com/')
       .then((res) => {
         setAllMovies(res.data);
         const trending = res.data.slice(0, 6); // or use a `isTrending` flag
