@@ -9,7 +9,7 @@ const PopularSection = () => {
   const trendingIds = ['t-1', 't-2', 't-3', 't-4', 't-5', 't-6'];
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/movies')
+    axios.get('https://movie-app-backend-9wvy.onrender.com')
       .then((res) => {
         // ❌ Filter out the trending movies
         const nonTrending = res.data.filter(movie => !trendingIds.includes(movie.id));
