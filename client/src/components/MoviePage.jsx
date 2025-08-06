@@ -13,7 +13,7 @@ const MoviePage = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    axios.get('https://movie-app-backend-9wvy.onrender.com/')
+    axios.get('https://movie-app-backend-9wvy.onrender.com/api/movies')
       .then((res) => {
         const foundMovie = res.data.find((item) => item.id === id);
         setMovie(foundMovie);
